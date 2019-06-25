@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 class MainPageLocators:
     IMAGES_LINK = (By.CSS_SELECTOR, '[data-id="images"]')
     SEARCH_INPUT = (By.ID, 'text')
-    DIV_LIST = (By.CLASS_NAME, 'popup__content')
+    SUGGEST_LIST = (By.CLASS_NAME, 'suggest2__content_theme_normal')
 
 
 class ImagesPageLocators:
@@ -17,5 +17,3 @@ class ImagesPageLocators:
 
 class ResultsPageLocators:
     RESULT_TABLE = (By.CSS_SELECTOR, '[aria-label="Результаты поиска"]')
-
-
