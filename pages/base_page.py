@@ -1,4 +1,8 @@
 from selenium.common.exceptions import NoSuchElementException
+import logging
+
+
+logging.basicConfig(level=logging.INFO)
 
 
 class BasePage:
@@ -9,6 +13,7 @@ class BasePage:
         self.driver.implicitly_wait(timeout)
 
     def open(self):
+        logging.info(f'Открываем страницу{self.url}')
         self.driver.get(self.url)
 
     def is_element_present(self, how, what):

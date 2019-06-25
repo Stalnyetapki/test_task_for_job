@@ -3,9 +3,10 @@ from .pages.images_page import ImagesPage
 from .pages.results_page import ResultsPage
 
 
-def test_yandex_searching(driver):
-    homepage_url = 'https://yandex.ru/'
-    # Создаем экземпляр класса MainPage
+homepage_url = 'https://yandex.ru/'
+
+
+def test_yandex_search(driver):
     page = MainPage(driver, homepage_url)
     # Переходим на главную страницу яндекса
     page.open()
@@ -15,15 +16,12 @@ def test_yandex_searching(driver):
     page.input_text_in_search_bar('Тензор')
     page.should_be_table_with_tips()
     page.press_button_enter()
-    # Создаем экземпляр класса ResultsPage
     results_page = ResultsPage(driver, driver.current_url)
     results_page.should_be_search_result()
     results_page.should_be_link_in_first_five_results()
 
 
 def test_section_yandex_pictures(driver):
-    homepage_url = 'https://yandex.ru/'
-    # Создаем экземпляр класса MainPage
     page = MainPage(driver, homepage_url)
     # Переходим на главную страницу яндекса
     page.open()
@@ -31,7 +29,6 @@ def test_section_yandex_pictures(driver):
     page.should_be_images_link()
     # Переходим в раздел Картинки
     page.go_to_images_page()
-    # Создаем экземпляр класса ImagePage
     images_page = ImagesPage(driver, driver.current_url)
     # проверка что ссылка корректна
     images_page.should_be_images_page_url()
