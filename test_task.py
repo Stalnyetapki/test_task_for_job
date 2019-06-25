@@ -41,4 +41,4 @@ def test_section_yandex_pictures(driver):
     # проверяем, что она открылась (что элемент присутствует на странице и его размер больше нуля)
     images_page.should_be_open_image()
     # Проверяем работу слайдера
-    images_page.test_navbar_yandex()
+    images_page.test_yandex_picture_slider()

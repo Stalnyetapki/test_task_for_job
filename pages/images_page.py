@@ -25,7 +25,7 @@ class ImagesPage(BasePage):
         self.wait_until_element_is_visible(10, ImagesPageLocators.PICTURE[0], ImagesPageLocators.PICTURE[1])
         assert self.is_element_present(*ImagesPageLocators.PICTURE), 'Image element does not show'
 
-    def test_navbar_yandex(self):
+    def test_yandex_picture_slider(self):
         logging.info('Check the correct operation of the slider')
 
         # Запоминаем ссылку изображения
