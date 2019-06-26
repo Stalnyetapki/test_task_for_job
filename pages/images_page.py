@@ -31,7 +31,6 @@ class ImagesPage(BasePage):
         # Запоминаем ссылку изображения
         first_img_link = self.driver.find_element(*ImagesPageLocators.PICTURE).get_attribute('src')
 
-
         logging.info('Производим поиск локатора правой стрелки слайдера и нажимаем на неe')
         # Производим поиск локатора правой стрелки слайдера и нажимаем на неe
         self.wait_until_element_is_visible(10, ImagesPageLocators.NAV_RIGHT[0], ImagesPageLocators.NAV_RIGHT[1])
