@@ -31,6 +31,8 @@ class ImagesPage(BasePage):
         # Запоминаем ссылку изображения
         first_img_link = self.driver.find_element(*ImagesPageLocators.PICTURE).get_attribute('src')
 
+
+        logging.info('Производим поиск локатора правой стрелки слайдера и нажимаем на неe')
         # Производим поиск локатора правой стрелки слайдера и нажимаем на неe
         self.wait_until_element_is_visible(10, ImagesPageLocators.NAV_RIGHT[0], ImagesPageLocators.NAV_RIGHT[1])
         nav_right = self.driver.find_element(*ImagesPageLocators.NAV_RIGHT)
@@ -43,6 +45,7 @@ class ImagesPage(BasePage):
         # Выполняем проверку, что переход на следущую картинку произошел, сравнивая ссылки изображений
         assert first_img_link != second_img_link, 'The picture has not changed'
 
+        logging.info('Производим поиск локатора левой стрелки слайдера и нажимаем на неe')
         # Производим поиск локатора левой стрелки слайдера и нажимаем на неe
         self.wait_until_element_is_visible(10, ImagesPageLocators.NAV_LEFT[0], ImagesPageLocators.NAV_LEFT[1])
         nav_left = self.driver.find_element(*ImagesPageLocators.NAV_LEFT)

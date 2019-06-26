@@ -1,6 +1,7 @@
 from .pages.main_page import MainPage
 from .pages.images_page import ImagesPage
 from .pages.results_page import ResultsPage
+import time
 
 
 homepage_url = 'https://yandex.ru/'
@@ -34,6 +35,10 @@ def test_section_yandex_pictures(driver):
     # Переходим в раздел Картинки
     page.go_to_pictures_page()
     images_page = ImagesPage(driver, driver.current_url)
+    # Поставил такое ожидание, так как, если, перейдя на страницу https://yandex.ru/images/ быстро кликнуть
+    # на любую картинку, то она открывается, без стрелок слайдера. Наглядно можно просмотреть это, если открыть картинку
+    # в режиме инкогнито
+    time.sleep(2)
     # проверка что ссылка корректна
     images_page.should_be_picture_page_url()
     # открываем первую картинку
